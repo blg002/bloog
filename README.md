@@ -1,1 +1,1 @@
-Just working through (Objects on Rails)[http://objectsonrails.com/]
+Just working through [Objects on Rails](http://objectsonrails.com/)
