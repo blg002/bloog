@@ -1,4 +1,5 @@
 class Blog
+  
   attr_reader :entries
   attr_writer :post_source
 
