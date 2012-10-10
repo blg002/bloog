@@ -1,4 +1,8 @@
 require 'minitest/autorun'
+
+require_relative '../spec_helper_lite'
+stub_module 'ActiveModel::Conversion'
+stub_module 'ActiveModel::Naming'
 require_relative '../../app/models/post'
 
 describe Post do
@@ -14,7 +18,7 @@ describe Post do
 
   it "supports reading and writing a title" do
     @it.title = "foo"
-    @it.title.must_equal = "foo"
+    @it.title.must_equal "foo"
   end
 
   it "supports reading and writing a post body" do
