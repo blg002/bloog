@@ -9,7 +9,8 @@ class Post
     attrs.each do |k,v| send("#{k}=",v) end
   end
 
-  def publish
+  def publish(clock=DateTime)
+    self.pubdate = clock.now
     blog.add_entry(self)
   end
 
