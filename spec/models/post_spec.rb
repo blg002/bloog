@@ -1,8 +1,7 @@
 require 'minitest/autorun'
+require 'active_model'
 
 require_relative '../spec_helper_lite'
-stub_module 'ActiveModel::Conversion'
-stub_module 'ActiveModel::Naming'
 require_relative '../../app/models/post'
 
 describe Post do
@@ -45,6 +44,19 @@ describe Post do
     it "adds the post to the blog" do
       @blog.expect :add_entry, nil, [@it]
       @it.publish
+    end
+
+    describe "given an invalid post" do
+      before do @it.title = nil end
+
+      it "wont add the post to the blog" do
+        dont_allow(@blog).add_entry
+        @it.publish
+      end
+
+      it "returns false" do
+        refute(@it.publish)
+      end
     end
   end
 
