@@ -3,7 +3,7 @@ class Post
   extend  ActiveModel::Naming
   include ActiveModel::Conversion
 
-  attr_accessor :blog, :title, :body
+  attr_accessor :blog, :title, :body, :pubdate
 
   def initialize(attrs={})
     attrs.each do |k,v| send("#{k}=",v) end
